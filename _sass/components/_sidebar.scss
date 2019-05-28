@@ -1,0 +1,31 @@
+.sidebar{
+
+  &.sticky-top{
+    top: 3rem;
+  }
+
+  .sidebar__image{
+    margin-bottom: 1rem;
+  }
+
+  .sidebar__header{ }
+
+  .sidebar__content{
+    margin-bottom: 1rem;
+    color: $text-secondary;
+  }
+
+  .sidebar__nav{
+
+    ul{
+      text-decoration: none;
+      list-style-type: none;
+      padding: 0;
+      li{
+        line-height: 2rem;
+      }
+    }
+
+  }
+
+}

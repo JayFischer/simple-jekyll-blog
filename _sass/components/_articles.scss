@@ -1,0 +1,38 @@
+.article-list{
+  &:not(:last-child){
+    padding-bottom: 0;
+  }
+}
+
+.article-list-item{
+  padding-bottom: 2.5rem;
+
+  &__title{
+    color: $text-primary;
+    text-decoration: none;
+    line-height: 1.75;
+
+    a {
+      color: inherit;
+      text-decoration: inherit;
+
+      &:hover{
+        color: $color-primary;
+      }
+    }
+  }
+
+  &__description{
+    line-height: 2.25;
+  }
+
+  &__footer{
+    > * {
+      margin-right: .50rem;  
+    }
+    time{
+      color: $color-secondary;
+      font-size: .85rem;
+    }
+  }
+}

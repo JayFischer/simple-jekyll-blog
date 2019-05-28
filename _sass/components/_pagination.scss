@@ -1,0 +1,14 @@
+.page-link {
+  color: $color-primary;
+
+  &:hover{
+    color: $color-primary-dark;
+  }
+}
+
+.page-item {
+  &.active .page-link {
+    background-color: $color-primary-dark;
+    border-color: $color-primary;
+  }
+}
