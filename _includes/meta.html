@@ -1,0 +1,19 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+{% if page.meta.keywords %}
+  <meta name="keywords" content="{{% page.meta.keywords %}}">
+{% endif %}
+
+<meta name="description" content="{% if page.meta.description %}{{ page.meta.description }}{% else %}{{ page.title }}{% endif %}">
+
+{% capture robots %}
+  {% if page.robots %}
+    {{% site.robots %}}
+  {% elsif site.robots %}
+    {{% site.robots %}}
+  {% else %}
+    index, follow
+  {% endif %}
+{% endcapture %}
+<meta name="robots" content="{{robots}}">
