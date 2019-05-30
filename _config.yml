@@ -6,6 +6,8 @@ url: "https://conorfischer.com"
 baseurl: ""
 
 
+google_analytics: UA-XXXXX-Y
+
 footer:
   date_format: "%Y"
   author: Conor Fischer
