@@ -9,7 +9,13 @@ layout: compress
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <title>
-      {% if page.title %}{{ page.title }} | {% endif %}{{ site.author }}
+      {% if page.title or page.meta.title %}
+        {% if page.meta.title %}
+          {{ page.meta.title }} |
+        {% else %}
+          {{ page.title }} |
+        {% endif %}
+      {% endif %} {{ site.author }}
     </title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -25,17 +31,11 @@ layout: compress
         </div>
 
         <div class="col-xs-12 col-lg-9" style="min-height: 500px;">
-          <div class="row">
-            <div class="col">
-              {{ content }}
-            </div>
-          </div>
 
-          <footer class="row">
-            <div class="col text-center">
-              <small class="text-muted">&copy;{{ site.time | date: '%Y' }} <a href="{{ site.github }}" class="text-muted">{{ site.author }}</a></small>
-            </div>
-          </footer>
+          {{ content }}
+
+          {% include footer.html %}
+
         </div>
       </div>
     </div>

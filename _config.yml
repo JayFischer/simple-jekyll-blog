@@ -5,6 +5,14 @@ bio: Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 url: "https://conorfischer.com"
 baseurl: ""
 
+
+footer:
+  date_format: "%Y"
+  author: Conor Fischer
+  url: https://github.com/jayfischer
+  statement_of_rights: All rights reserverd.
+
+
 paginate: 10
 per_page: 10
 paginate_path: '/page/:num/'

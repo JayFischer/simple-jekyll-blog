@@ -1,0 +1,23 @@
+<footer class="row footer">
+  <div class="col text-center">
+    <small class="text-muted">
+      &copy;
+      {% if site.footer.date_format %}
+        {{ site.time | date: site.footer.date_format }}
+      {% else %}
+        {{ site.time | date: ""%Y" }}
+      {% endif %}
+
+      {% if site.footer.url %}
+        <a href="{{ site.footer.url }}" class="footer__author text-muted">{{ site.footer.author }}</a>.
+      {% else %}
+        <span class="footer__author">{{ site.footer.author }}</span>.
+      {% endif %}
+
+      {% if site.footer.statement_of_rights %}
+        <span class="footer__rights">{{ site.footer.statement_of_rights }}</span>
+      {% endif %}
+
+    </small>
+  </div>
+</footer>
