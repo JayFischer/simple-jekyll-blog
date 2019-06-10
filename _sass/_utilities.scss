@@ -1,16 +1,50 @@
-// https://gist.github.com/timknight/b8adb5df5600c37fd567#file-breakpoint-v2-scss
-$xs: ( max:  576px );
-$sm: ( min:  576px );
-$md: ( min:  768px );
-$lg: ( min: 992px );
-$xl: ( min: 1200px );
-$sm-only: ( min: map-get($sm, min), max: map-get($md, min) - 1 );
-$md-only: ( min: map-get($md, min), max: map-get($lg, min) - 1 );
+$grid: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
 
-@mixin breakpoint($map) {
-  $query: "";
-  @if map-has-key($map, min) { $query: append($query, "(min-width: #{map-get($map, min)})") }
-  @if map-has-key($map, min) and map-has-key($map, max) { $query: append($query, "and") }
-  @if map-has-key($map, max) { $query: append($query, "(max-width: #{map-get($map, max)})") }
-  @media screen and #{$query} { @content; }
+@function breakpoint-next($breakpoint, $breakpoints){
+  $names: map-keys($breakpoints);
+  $index: index($names, $breakpoint);
+  @return nth($names, $index + 1);
+}
+
+@mixin breakpoint-only($breakpoint, $breakpoints: $grid){
+  $breakpoint-value: map-get($breakpoints, $breakpoint);
+  
+  @if $breakpoint-value {
+    $next-value: map-get($breakpoints, breakpoint-next($breakpoint, $breakpoints));
+    @media (min-width: ($breakpoint-value)) and (max-width: ($next-value - 1)) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+@mixin breakpoint-up($breakpoint, $breakpoints: $grid) {
+  $breakpoint-value: map-get($breakpoints, $breakpoint);
+
+  @if $breakpoint-value {
+    @media (min-width: ($breakpoint-value)) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+@mixin breakpoint-down($breakpoint, $breakpoints: $grid) {
+  $breakpoint-value: map-get($breakpoints, $breakpoint);
+
+  @if $breakpoint-value {
+    @media (max-width: ($breakpoint-value - 1)) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
 }

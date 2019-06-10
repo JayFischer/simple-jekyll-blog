@@ -1,0 +1,15 @@
+{% if site.social %}
+  <ul class="nav nav--social">
+    {% if site.social.twitter %}
+      <li class="nav-item">
+        <a href="{{ site.social.twitter.url }}" class="twitter-follow-button" aria-label="Follow @{{ site.social.twitter.name }}" data-show-count="false">Follow @{{ site.social.twitter.name }}</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </li>
+    {% endif %}
+
+    {% if site.social.github %}
+      <li class="nav-item">
+        <a class="github-button" href="{{ site.social.github.url }}" aria-label="Follow @{{ site.social.github.name }} on GitHub">Follow @{{ site.social.github.name }}</a><script async defer src="https://buttons.github.io/buttons.js"></script>
+      </li>
+    {% endif %}
+  </ul>
+{% endif %}

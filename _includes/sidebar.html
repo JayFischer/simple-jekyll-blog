@@ -1,21 +1,18 @@
-<div class="sidebar sticky-top ">
-
+<div class="sidebar sticky-top">
   <div class="row text-center">
-    <div class="col-xs-12 col-lg-10 offset-lg-1">
+    <div class="col">
       <div class="sidebar__image">
         <img class="img-fluid" src="{{ site.author_image }}" alt="{{ site.author }}">
       </div>
-    </div>
-  </div>
 
-  <div class="row text-center">
-    <div class="col">
       <div class="sidebar__header">
         <h4>{{ site.author }}</h4>
       </div>
+
       <div class="sidebar__content">
         <span>{{ site.bio }}</span>
       </div>
+
       <nav class="sidebar__nav">
         <ul>
           {% for i in site.urls %}

@@ -1,28 +1,66 @@
 .sidebar{
+  padding: 1.5rem 0;
+
+  @include breakpoint-up(lg){
+    padding: 0;
+  }
 
   &.sticky-top{
     top: 3rem;
   }
 
   .sidebar__image{
-    margin-bottom: 1rem;
+    display: none;
+
+    @include breakpoint-up(lg){
+      display: block;
+      margin-bottom: 1rem;
+    }
   }
 
-  .sidebar__header{ }
+  .sidebar__header{
+    display: inline-block;
+    float: left;
+    line-height: 1rem;
+
+    @include breakpoint-up(lg){
+      float: none;
+    }
+  }
 
   .sidebar__content{
+    display: none;
     margin-bottom: 1rem;
     color: $text-secondary;
+
+    @include breakpoint-up(lg){
+      display: block;
+    }
   }
 
   .sidebar__nav{
+    display: inline-block;
+    float: right;
+
+    @include breakpoint-up(lg){
+      float: none;
+    }
 
     ul{
       text-decoration: none;
       list-style-type: none;
       padding: 0;
+      margin: 0;
+
       li{
+        display: inline-block;
         line-height: 2rem;
+        padding: 0 1rem;
+
+        @include breakpoint-up(lg){
+          display: block;
+        }
+
       }
     }
 
