@@ -18,7 +18,7 @@ pagination:
           <time class="align-middle" datetime="{{ post.date }}">{{ post.date | date: "%B %-d, %Y" }}</time>
 
           {% for category in post.categories %}
-            <span class="badge badge-primary align-middle">{{ category }}</span>
+            <a class="badge badge-primary align-middle" href="{{site.baseurl}}/categories/#{{category|slugify}}">{{category}}</a>
           {% endfor %}
 
         </div>

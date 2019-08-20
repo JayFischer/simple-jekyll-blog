@@ -1,0 +1,25 @@
+---
+layout: page
+title: About Me.
+---
+
+
+{% for category in site.categories %}
+  <div class="mb-3">
+    {% capture category_name %}{{ category.first }}{% endcapture %}
+
+    <div id="{{ category_name | slugify }}">
+      <h4 class="text-capitalize">{{ category_name | slugify }}</h4>
+    </div>
+
+    <div class="row">
+      {% for post in site.categories[category_name] %}
+        <div class="col-6 col-md-4">
+          <h5 class="py-2 text-truncate">
+            <a href="{{ site.baseurl }}{{ post.url }}" title="{{post.title}}">{{post.title}}</a>
+          </h5>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endfor %}
