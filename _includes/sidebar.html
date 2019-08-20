@@ -15,7 +15,7 @@
 
       <nav class="sidebar__nav">
         <ul>
-          {% for i in site.urls %}
+          {% for i in site.navigation %}
             <li><a class="sidebar__nav__item" href="{{ i.url }}">{{ i.text }}</a></li>
           {% endfor %}
         </ul>
